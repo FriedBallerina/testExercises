@@ -1,0 +1,16 @@
+s = 'abcbcd'
+longestString = ''
+start = 0
+end = 1
+beginningOfCurrentString = start
+while end < len(s):
+    if s[start] <= s[end]:
+        if len(s[beginningOfCurrentString:end+1]) > len(longestString):
+            longestString = s[beginningOfCurrentString:end+1]
+        start += 1
+        end += 1
+    else:
+        start += 1
+        end += 1
+        beginningOfCurrentString = start
+print('Longest substring in alphabetical order is: ' + longestString)
