@@ -1,0 +1,24 @@
+start = 0
+end = 100
+guess = int((end-start)/2)
+shift = 0
+
+print('Please think of a number between 0 and 100!')
+
+answer = ''
+
+while answer != 'c':
+    answer = input("Is your secret number " + str(guess) + "?\nEnter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. ")
+    if answer == 'l':
+        start = guess
+        shift = (end - start)/2
+        guess = int(start + shift)
+    elif answer == 'h':
+        end = guess
+        shift = (guess - start)/2
+        guess = int(guess - shift)
+    elif answer == 'c':
+        print('Game over. Your secret number was: ' + str(guess))
+        break
+    else:
+        print("This is not a valid input! Please enter the letter 'c', 'h' or 'l' only.")
